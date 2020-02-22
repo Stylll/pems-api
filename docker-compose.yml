@@ -1,0 +1,12 @@
+version: '3'
+services:
+    pems-api:
+        container_name: pems_api
+        build: .
+        ports:
+            - 8080:3000 # host-machine:container
+        restart: on-failure
+        volumes:
+            - .:/api # mount project directory "." to container directory "/api" to enable code updates on the fly
+        env_file: 
+            - .env
